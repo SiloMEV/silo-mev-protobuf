@@ -1,0 +1,30 @@
+syntax = "proto3";
+package seiprotocol.seichain.mev;
+
+option go_package = "github.com/m4ksio/silo-mev-protobuf-go/types";
+
+import "gogoproto/gogo.proto";
+
+
+// Msg defines the MEV Msg service
+service BundleProvider {
+  rpc GetBundles(GetBundlesRequest) returns (GetBundlesResponse);
+}
+
+message GetBundlesRequest {
+  uint64 min_block_height = 1;
+}
+
+
+message GetBundlesResponse {
+  map<uint64, Bundles> bundles = 1;
+}
+
+message Bundles {
+  repeated Bundle bundles = 1;
+}
+
+message Bundle {
+  uint64 block_height = 1;
+  repeated bytes transactions = 2;
+}
