@@ -1,7 +1,7 @@
 syntax = "proto3";
 package seiprotocol.seichain.mev;
 
-option go_package = "github.com/m4ksio/silo-mev-protobuf-go/types";
+option go_package = "github.com/SiloMEV/silo-mev-protobuf-go/types";
 
 import "gogoproto/gogo.proto";
 
